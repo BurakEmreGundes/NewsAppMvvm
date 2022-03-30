@@ -6,47 +6,70 @@
 //
 
 import Foundation
+import Combine
 
 
-
-struct ArticleListViewModel{
-    let articles : [Article]
+protocol IArticleListViewModel{
+    var articleList : [ArticleViewModel] {get set}
+    var webService : IWebService {get set}
+    func getAllArticles()
 }
 
 
 
-extension ArticleListViewModel{
-    var numberOfSections : Int {
-        return 10
-    }
-    func numberOfRowsInSection(_ section : Int) -> Int{
-        return self.articles.count
+
+class ArticleListViewModel:ObservableObject,IArticleListViewModel{
+    
+    var articleList: [ArticleViewModel]=[]
+    var webService: IWebService
+    
+    init(){
+        self.webService = WebService()
     }
     
-    func articleAtIndex(_ index:Int) -> ArticleViewModel{
-        let article = self.articles[index]
-        return ArticleViewModel(article)
+    func getAllArticles() {
+        webService.fetchAllArticles { result in
+            switch result {
+            case .failure(let error):
+                print(error)
+                
+            case .success(let articles):
+                
+                if let articles = articles {
+                    DispatchQueue.main.async {
+                        self.articleList = articles.map(ArticleViewModel.init)
+                    }
+              
+                }
+            }
+        }
     }
+    
+    
 }
+
 
 
 struct ArticleViewModel{
-    private let article: Article
+   private let article: Article
 }
 
 extension ArticleViewModel{
-    init(_ article : Article){
-        self.article=article
+    init(_ article: Article){
+        self.article = article
     }
 }
 
+
+
 extension ArticleViewModel{
+        
     var title : String {
-        return self.article.title
+        self.article.title
     }
     
     var description : String{
-        return self.article.description
+        self.article.description
     }
 }
 
