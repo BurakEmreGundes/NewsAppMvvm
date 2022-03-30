@@ -15,6 +15,8 @@
 		4AF1EBAB27F4EEBF00E3B679 /* NewsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1EBAA27F4EEBF00E3B679 /* NewsListTableViewController.swift */; };
 		4AF1EBAE27F4F4AF00E3B679 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1EBAD27F4F4AF00E3B679 /* Article.swift */; };
 		4AF1EBB127F4F69B00E3B679 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1EBB027F4F69B00E3B679 /* Webservice.swift */; };
+		4AF1EBB427F5001100E3B679 /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1EBB327F5001000E3B679 /* ArticleViewModel.swift */; };
+		4AF1EBB727F504A600E3B679 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF1EBB627F504A600E3B679 /* ArticleTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		4AF1EBAA27F4EEBF00E3B679 /* NewsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListTableViewController.swift; sourceTree = "<group>"; };
 		4AF1EBAD27F4F4AF00E3B679 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		4AF1EBB027F4F69B00E3B679 /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
+		4AF1EBB327F5001000E3B679 /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
+		4AF1EBB627F504A600E3B679 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 		4AF1EB9427F4EE3D00E3B679 /* NewsAppMvvm */ = {
 			isa = PBXGroup;
 			children = (
+				4AF1EBB527F5048800E3B679 /* Cells */,
+				4AF1EBB227F4FE4300E3B679 /* ViewModels */,
 				4AF1EBAF27F4F64F00E3B679 /* Services */,
 				4AF1EBAC27F4F49C00E3B679 /* Models */,
 				4AF1EBA927F4EE9200E3B679 /* Controllers */,
@@ -95,6 +101,22 @@
 				4AF1EBB027F4F69B00E3B679 /* Webservice.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		4AF1EBB227F4FE4300E3B679 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4AF1EBB327F5001000E3B679 /* ArticleViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4AF1EBB527F5048800E3B679 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4AF1EBB627F504A600E3B679 /* ArticleTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,7 +193,9 @@
 				4AF1EBAE27F4F4AF00E3B679 /* Article.swift in Sources */,
 				4AF1EB9627F4EE3D00E3B679 /* AppDelegate.swift in Sources */,
 				4AF1EBAB27F4EEBF00E3B679 /* NewsListTableViewController.swift in Sources */,
+				4AF1EBB427F5001100E3B679 /* ArticleViewModel.swift in Sources */,
 				4AF1EBB127F4F69B00E3B679 /* Webservice.swift in Sources */,
+				4AF1EBB727F504A600E3B679 /* ArticleTableViewCell.swift in Sources */,
 				4AF1EB9827F4EE3D00E3B679 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
