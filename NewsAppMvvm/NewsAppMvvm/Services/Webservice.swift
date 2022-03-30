@@ -35,11 +35,16 @@ struct WebService: IWebService{
                     return completion(.failure(.noData))
                 }
                 
-                guard let results = try? JSONDecoder().decode(ResultModel.self, from: data) else{
-                    return completion(.failure(.dataParserError))
+                if let results = try? JSONDecoder().decode(ResultModel.self, from: data){
+             
+                    completion(.success(results.articles))
+                }else{
+                    completion(.failure(.dataParserError))
                 }
                 
-                completion(.success(results.articles))
+              
+                
+               
             }
         
         }.resume()

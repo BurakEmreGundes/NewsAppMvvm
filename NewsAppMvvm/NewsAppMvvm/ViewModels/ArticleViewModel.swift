@@ -6,19 +6,24 @@
 //
 
 import Foundation
-import Combine
+
 
 
 protocol IArticleListViewModel{
     var articleList : [ArticleViewModel] {get set}
     var webService : IWebService {get set}
     func getAllArticles()
+    var articleListOutPut : IArticleListOutPut? {get set}
+    func setDelegate(output: IArticleListOutPut)
 }
 
 
 
 
-class ArticleListViewModel:ObservableObject,IArticleListViewModel{
+final class ArticleListViewModel:IArticleListViewModel{
+    var articleListOutPut: IArticleListOutPut?
+    
+  
     
     var articleList: [ArticleViewModel]=[]
     var webService: IWebService
@@ -36,14 +41,17 @@ class ArticleListViewModel:ObservableObject,IArticleListViewModel{
             case .success(let articles):
                 
                 if let articles = articles {
-                    DispatchQueue.main.async {
                         self.articleList = articles.map(ArticleViewModel.init)
-                    }
-              
+                    print(self.articleList)
+                        self.articleListOutPut?.saveDatas(values: self.articleList)
                 }
             }
         }
     }
+    func setDelegate(output: IArticleListOutPut) {
+        self.articleListOutPut = output
+    }
+    
     
     
 }
